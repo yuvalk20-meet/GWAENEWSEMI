@@ -1,0 +1,15 @@
+import http.client
+
+conn = http.client.HTTPSConnection("instagram-facebook-media-downloader.p.rapidapi.com")
+
+headers = {
+    'x-rapidapi-host': "instagram-facebook-media-downloader.p.rapidapi.com",
+    'x-rapidapi-key': "ce8ea61463mshba51cb620b94a68p161c06jsnc8d90c1f2bb2"
+    }
+
+conn.request("GET", "/api?igurl=https%253A%252F%252Fwww.instagram.com%252Fp%252FBvJyyOhoYvJ", headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
